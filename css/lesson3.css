@@ -1,0 +1,33 @@
+.calc {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: skyblue;
+    padding: 20;
+    border: black 1px solid;
+}
+
+.operation-buttons .operation-button {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.inputs-block label {
+    display: block;
+}
+
+.inputs-block .input-block {
+    display: inline-block;
+    padding: 5px;
+}
+
+.clean-button {
+    height: 40px;
+    width: 60px;
+}
+
+.header {
+    color: tomato;
+}
