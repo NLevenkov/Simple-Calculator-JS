@@ -7,12 +7,7 @@
         <h1>Calculator 3000</h1>
     </div>
     <div class='operation-buttons'>
-        <button id='button-plus' class='operation-button'>+</button>
-        <button id='button-minus' class='operation-button'>-</button>
-        <button id='button-multiply' class='operation-button'>*</button>
-        <button id='button-divide' class='operation-button'>/</button>
-        <button id='button-clean' class='clean-button'>Clean</button>
-        <button id='button-answer' class='clean-button'>=</button>
+        <!-- <button id='button-plus' class='operation-button'>+</button> -->
     </div>
     <div class="separator">
         <hr>
@@ -22,32 +17,58 @@
         <div class='inputs-block'>
             <div class="input-block">
                 <label>Console</label>
-                <input id='num1' type="number">
+                <input id='num1' class='console' type="number">
             </div>
-            <!-- <div class="input-block">
-                <label>Second number</label>
-                <input id='num2' type='number'>
-            </div> -->
+
+        </div>
+        <div class='separator'>
+            <hr>
+        </div>
+        <div class='first-row'>
+            <div class='row-digits'>
+                <div class='digit left-digit'><button id='digit-1' class='digit-button'>1</button></div>
+                <div class='digit'><button id='digit-2' class='digit-button'>2</button></div>
+                <div class='digit'><button id='digit-3' class='digit-button'>3</button></div>
+            </div>
+            <div class='row-operations'>
+                <button id='button-plus' class='operation-button'>+</button>
+                <button id='button-divide' class='operation-button second-colomn-operation'>/</button>
+            </div>
+        </div>
+        <div class='second-row'>
+            <div class='row-digits'>
+                <div class='digit left-digit'><button id='digit-4' class='digit-button'>4</button></div>
+                <div class='digit'><button id='digit-5' class='digit-button'>5</button></div>
+                <div class='digit'><button id='digit-6' class='digit-button'>6</button></div>
+            </div>
+            <div class='row-operations'>
+                <button id='button-minus' class='operation-button'>-</button>
+                <button id='button-clean' class='operation-button'>CC</button>
+
+            </div>
+        </div>
+        <div class='third-row'>
+            <div class='row-digits'>
+                <div class='digit'><button id='digit-7' class='digit-button'>7</button></div>
+                <div class='digit'><button id='digit-8' class='digit-button'>8</button></div>
+                <div class='digit'><button id='digit-9' class='digit-button'>9</button></div>
+            </div>
+            <div class='row-operations'>
+                <button id='button-multiply' class='operation-button'>*</button>
+            </div>
+
+
+
         </div>
         <div>
-            <div class='digit'><button id='digit-1' class='operation-button'>1</button></div>
-            <div class='digit'><button id='digit-2' class='operation-button'>2</button></div>
-            <div class='digit'><button id='digit-3' class='operation-button'>3</button></div>
+            <div class='digit'><button id="digit-0" class='button-zero'>0</button></div>
+            <button id='button-answer' class='operation-button '>=</button>
         </div>
-        <div>
-            <div class='digit'><button id='digit-4' class='operation-button'>4</button></div>
-            <div class='digit'><button id='digit-5' class='operation-button'>5</button></div>
-            <div class='digit'><button id='digit-6' class='operation-button'>6</button></div>
-        </div>
-        <div>
-            <div class='digit'><button id='digit-7' class='operation-button'>7</button></div>
-            <div class='digit'><button id='digit-8' class='operation-button'>8</button></div>
-            <div class='digit'><button id='digit-9' class='operation-button'>9</button></div>
-        </div>
-        <div><button id="digit-0" class='button-zero'>0</button></div>
+
+
     </div>
 
 
 </div>
 
-<script src='js/lesson3.js'></script>
+<script src='js/lesson3.js '></script>
