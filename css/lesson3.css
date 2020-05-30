@@ -7,11 +7,12 @@
     border: black 1px solid;
 }
 
-.operation-buttons .operation-button {
+.operation-button {
     height: 40px;
     width: 40px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .inputs-block label {
@@ -30,4 +31,23 @@
 
 .header {
     color: tomato;
+}
+
+.digits {
+    padding: 5px;
+    width: 300px;
+    border: 2px tomato solid;
+    margin: 0 auto;
+}
+
+.digits .digit {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.button-zero {
+    margin-top: 5px;
+    height: 40px;
+    width: 208px;
 }
