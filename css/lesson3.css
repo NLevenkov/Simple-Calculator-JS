@@ -23,7 +23,6 @@
 
 .row-operations {
     display: inline;
-    max-width: 150px;
 }
 
 .operation-button {
@@ -76,10 +75,6 @@
 
 .console {
     width: 200px;
-}
-
-.second-colomn-operation {
-    margin-right: 10px;
 }
 
 .left-digit {
