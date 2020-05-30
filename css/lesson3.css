@@ -1,5 +1,5 @@
 .calc {
-    width: 500px;
+    width: 300px;
     margin: 0 auto;
     text-align: center;
     background-color: skyblue;
@@ -7,11 +7,35 @@
     border: black 1px solid;
 }
 
-.operation-buttons .operation-button {
+.row-digits {
+    display: inline;
+}
+
+.third-row .row-operations {
+    display: inline;
+    margin-right: 48px;
+}
+
+.fourth-row .row-operations {
+    display: inline;
+    margin-right: 48px;
+}
+
+.row-operations {
+    display: inline;
+}
+
+.operation-button {
     height: 40px;
     width: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.digit-button {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
 }
 
 .inputs-block label {
@@ -25,9 +49,34 @@
 
 .clean-button {
     height: 40px;
-    width: 60px;
+    width: 40px;
 }
 
 .header {
     color: tomato;
+}
+
+.digits {
+    padding: 5px;
+    width: auto;
+    border: 2px tomato solid;
+}
+
+.digit {
+    display: inline-block;
+    margin: 5px;
+}
+
+.button-zero {
+    height: 40px;
+    width: 150px;
+    display: inline-block;
+}
+
+.console {
+    width: 200px;
+}
+
+.left-digit {
+    margin-left: 56px;
 }
