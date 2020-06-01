@@ -1,13 +1,13 @@
-// Creating variables for buttons elements
+//Temporary value in console
 var temp;
-
+//States for operations
 var state;
 var plusState = 'plus';
 var minusState = 'minus';
 var divideState = 'divide';
 var multiplyState = 'multiply';
 
-
+// Creating variables for buttons elements
 var plusButtonEl = document.getElementById('button-plus');
 var minusButtonEl = document.getElementById('button-minus');
 var multiplyButtonEl = document.getElementById('button-multiply');
@@ -32,8 +32,8 @@ var zeroButtonEl = document.getElementById('digit-0');
 
 //Functions for digits
 function onDigitButtonClick(id, digit) {
-    var num1El = document.getElementById('num1');
-    num1.value += digit;
+    var consoleEl = document.getElementById('console');
+    consoleEl.value += digit;
     // console.log(num1.value);
 
 }
@@ -81,76 +81,67 @@ function onZeroButtonCLick() {
 //Functions for operation buttons
 function onAnswerButtonClick() {
     console.log('answerClick');
-    var num1El = document.getElementById('num1');
-    var temp2 = Number(num1El.value);
+    var consoleEl = document.getElementById('console');
+    var temp2 = Number(consoleEl.value);
 
 
     switch (state) {
         case plusState:
             {
-                num1El.value = (temp + temp2);
+                consoleEl.value = (temp + temp2);
                 break;
             }
         case minusState:
             {
-                num1El.value = temp - temp2;
+                consoleEl.value = temp - temp2;
                 break;
             }
         case multiplyState:
             {
-                num1El.value = temp * temp2;
+                consoleEl.value = temp * temp2;
                 break;
             }
         case divideState:
             {
-                num1El.value = temp / temp2;
+                consoleEl.value = temp / temp2;
                 break;
             }
     }
 }
 
 function onButtonCleanClick() {
-    var num1El = document.getElementById('num1');
-    num1El.value = '';
-    // var num2El = document.getElementById('num2');
-    // num2El.value = '';
+    var consoleEl = document.getElementById('console');
+    consoleEl.value = '';
     console.log('onButtonCleanClick');
+}
 
-
+function getConsoleElement() {
+    var num1El = document.getElementById('console');
+    temp = Number(num1El.value);
+    num1El.value = '';
 }
 
 function onButtonPlusClick() {
-    var num1El = document.getElementById('num1');
-    temp = Number(num1El.value);
-    num1El.value = '';
+    getConsoleElement();
     state = plusState;
     console.log('onButtonPlusClick');
-
 }
 
 function onButtonMinusClick() {
-    var num1El = document.getElementById('num1');
-    temp = Number(num1El.value);
-    num1El.value = '';
+    getConsoleElement();
     state = minusState;
     console.log('onButtonMinusClick');
-
 }
 
 function onButtonMultiplyClick() {
-    var num1El = document.getElementById('num1');
-    temp = Number(num1El.value);
-    num1El.value = '';
+    getConsoleElement();
     state = multiplyState;
     console.log('onButtonMultiplyClick');
 }
 
 function onButtonDivideClick() {
-    var num1El = document.getElementById('num1');
-    temp = Number(num1El.value);
-    num1El.value = '';
+    getConsoleElement();
     state = divideState;
-
     console.log('onButtonDivideClick');
 }
 
