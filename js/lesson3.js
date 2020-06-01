@@ -1,84 +1,111 @@
-//Temporary value in console
+//Temporary value in console---------------------------------------
 var temp;
-//States for operations
+
+//States for operations--------------------------------------------
 var state;
-var plusState = 'plus';
-var minusState = 'minus';
-var divideState = 'divide';
-var multiplyState = 'multiply';
+var states = ['plus', 'minus', 'divide', 'multiply'];
+var digitsButtonsID = ['digit-0', 'digit-1', 'digit-2', 'digit-3', 'digit-4', 'digit-5', 'digit-6', 'digit-7', 'digit-8', 'digit-9']
+var operationButtonsID = ['button-plus', 'button-minus', 'button-multiply', 'button-divide', 'button-clean', 'button-answer']
 
-// Creating variables for buttons elements
-var plusButtonEl = document.getElementById('button-plus');
-var minusButtonEl = document.getElementById('button-minus');
-var multiplyButtonEl = document.getElementById('button-multiply');
-var divideButtonEl = document.getElementById('button-divide');
-var cleanButtonEl = document.getElementById('button-clean');
-var answerButtonEl = document.getElementById('button-answer');
-
-//Digits
-var oneButtonEl = document.getElementById('digit-1');
-var twoButtonEl = document.getElementById('digit-2');
-var threeButtonEl = document.getElementById('digit-3');
-var fourButtonEl = document.getElementById('digit-4');
-var fiveButtonEl = document.getElementById('digit-5');
-var sixButtonEl = document.getElementById('digit-6');
-var sevenButtonEl = document.getElementById('digit-7');
-var eightButtonEl = document.getElementById('digit-8');
-var nineButtonEl = document.getElementById('digit-9');
-var zeroButtonEl = document.getElementById('digit-0');
-
-
-//Creating functions for listeners
-
-//Functions for digits
-function onDigitButtonClick(id, digit) {
+//----------------------Functions for digits-----------------------
+function onDigitButtonClick() {
+    var digit = event.currentTarget;
     var consoleEl = document.getElementById('console');
-    consoleEl.value += digit;
-    // console.log(num1.value);
+    consoleEl.value += digit.innerHTML;
+}
+
+//Functions for operation buttons----------------------------------
+function makeOperation(operation) {
+    switch (operation) {
+        case "plus":
+            {
+                getConsoleElement();
+                state = states[0];
+                console.log('onButtonPlusClick');
+                break;
+            }
+        case "minus":
+            {
+                getConsoleElement();
+                state = states[1];
+                console.log('onButtonMinusClick');
+                break;
+
+            }
+        case "multiply":
+            {
+                getConsoleElement();
+                state = states[3];
+                console.log('onButtonMultiplyClick');
+                break;
+
+            }
+        case "divide":
+            {
+                getConsoleElement();
+                state = states[2];
+                console.log('onButtonDivideClick');
+                break;
+            }
+        case "clean":
+            {
+                var consoleEl = document.getElementById('console');
+                consoleEl.value = '';
+                console.log('onButtonCleanClick');
+                break;
+
+            }
+        case "answer":
+            {
+
+            }
+
+    }
+
+
 
 }
 
-function onOneButtonCLick() {
-    onDigitButtonClick('digit-1', 1);
+function onOperationButtonClick() {
+    var operator = event.currentTarget;
+    var operation = operator.id;
+
+    switch (operation) {
+        case operationButtonsID[0]:
+            {
+                makeOperation("plus");
+                break;
+            }
+        case operationButtonsID[1]:
+            {
+                makeOperation("minus");
+                break;
+
+            }
+        case operationButtonsID[2]:
+            {
+                makeOperation("multiply");
+                break;
+            }
+        case operationButtonsID[3]:
+            {
+                makeOperation("divide");
+                break;
+            }
+        case operationButtonsID[4]:
+            {
+                makeOperation("clean");
+                break;
+            }
+        case operationButtonsID[5]:
+            {
+                onAnswerButtonClick();
+                break;
+            }
+
+    }
 }
 
-function onTwoButtonCLick() {
-    onDigitButtonClick('digit-2', 2);
-}
-
-function onThreeButtonCLick() {
-    onDigitButtonClick('digit-3', 3);
-}
-
-function onFourButtonCLick() {
-    onDigitButtonClick('digit-4', 4);
-}
-
-function onFiveButtonCLick() {
-    onDigitButtonClick('digit-5', 5);
-}
-
-function onSixButtonCLick() {
-    onDigitButtonClick('digit-6', 6);
-}
-
-function onSevenButtonCLick() {
-    onDigitButtonClick('digit-7', 7);
-}
-
-function onEightButtonCLick() {
-    onDigitButtonClick('digit-8', 8);
-}
-
-function onNineButtonCLick() {
-    onDigitButtonClick('digit-9', 9);
-}
-
-function onZeroButtonCLick() {
-    onDigitButtonClick('digit-0', 0);
-}
-
-//Functions for operation buttons
 function onAnswerButtonClick() {
     console.log('answerClick');
     var consoleEl = document.getElementById('console');
@@ -86,22 +113,22 @@ function onAnswerButtonClick() {
 
 
     switch (state) {
-        case plusState:
+        case states[0]:
             {
                 consoleEl.value = (temp + temp2);
                 break;
             }
-        case minusState:
+        case states[1]:
             {
                 consoleEl.value = temp - temp2;
                 break;
             }
-        case multiplyState:
+        case states[3]:
             {
                 consoleEl.value = temp * temp2;
                 break;
             }
-        case divideState:
+        case states[2]:
             {
                 consoleEl.value = temp / temp2;
                 break;
@@ -109,58 +136,21 @@ function onAnswerButtonClick() {
     }
 }
 
-function onButtonCleanClick() {
-    var consoleEl = document.getElementById('console');
-    consoleEl.value = '';
-    console.log('onButtonCleanClick');
-}
-
 function getConsoleElement() {
-    var num1El = document.getElementById('console');
-    temp = Number(num1El.value);
-    num1El.value = '';
+    var consoleEl = document.getElementById('console');
+    temp = Number(consoleEl.value);
+    consoleEl.value = '';
+}
+//----------------------------------------------------------------------
+
+// Adding eventListeners to operation buttons---------------------------
+for (var i = 0; i < operationButtonsID.length; i++) {
+    var element = document.getElementById(operationButtonsID[i]);
+    element.addEventListener('click', onOperationButtonClick);
 }
 
-function onButtonPlusClick() {
-    getConsoleElement();
-    state = plusState;
-    console.log('onButtonPlusClick');
+// Adding eventListeners to digits buttons------------------------------
+for (var i = 0; i < digitsButtonsID.length; i++) {
+    var digit = document.getElementById(digitsButtonsID[i]);
+    digit.addEventListener('click', onDigitButtonClick);
 }
-
-function onButtonMinusClick() {
-    getConsoleElement();
-    state = minusState;
-    console.log('onButtonMinusClick');
-}
-
-function onButtonMultiplyClick() {
-    getConsoleElement();
-    state = multiplyState;
-    console.log('onButtonMultiplyClick');
-}
-
-function onButtonDivideClick() {
-    getConsoleElement();
-    state = divideState;
-    console.log('onButtonDivideClick');
-}
-
-//Adding eventListeners to operation buttons
-plusButtonEl.addEventListener('click', onButtonPlusClick);
-minusButtonEl.addEventListener('click', onButtonMinusClick);
-multiplyButtonEl.addEventListener('click', onButtonMultiplyClick);
-divideButtonEl.addEventListener('click', onButtonDivideClick);
-cleanButtonEl.addEventListener('click', onButtonCleanClick);
-
-//Digit buttons
-oneButtonEl.addEventListener('click', onOneButtonCLick);
-twoButtonEl.addEventListener('click', onTwoButtonCLick);
-threeButtonEl.addEventListener('click', onThreeButtonCLick);
-fourButtonEl.addEventListener('click', onFourButtonCLick);
-fiveButtonEl.addEventListener('click', onFiveButtonCLick);
-sixButtonEl.addEventListener('click', onSixButtonCLick);
-sevenButtonEl.addEventListener('click', onSevenButtonCLick);
-eightButtonEl.addEventListener('click', onEightButtonCLick);
-nineButtonEl.addEventListener('click', onNineButtonCLick);
-zeroButtonEl.addEventListener('click', onZeroButtonCLick);
-answerButtonEl.addEventListener('click', onAnswerButtonClick);
