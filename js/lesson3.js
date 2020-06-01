@@ -57,6 +57,33 @@ function makeOperation(operation) {
             }
         case "answer":
             {
+                console.log('answerClick');
+                var consoleEl = document.getElementById('console');
+                var temp2 = Number(consoleEl.value);
+
+
+                switch (state) {
+                    case states[0]:
+                        {
+                            consoleEl.value = (temp + temp2);
+                            break;
+                        }
+                    case states[1]:
+                        {
+                            consoleEl.value = temp - temp2;
+                            break;
+                        }
+                    case states[3]:
+                        {
+                            consoleEl.value = temp * temp2;
+                            break;
+                        }
+                    case states[2]:
+                        {
+                            consoleEl.value = temp / temp2;
+                            break;
+                        }
+                }
 
             }
 
@@ -99,42 +126,13 @@ function onOperationButtonClick() {
             }
         case operationButtonsID[5]:
             {
-                onAnswerButtonClick();
+                makeOperation("answer");
                 break;
             }
 
     }
 }
 
-function onAnswerButtonClick() {
-    console.log('answerClick');
-    var consoleEl = document.getElementById('console');
-    var temp2 = Number(consoleEl.value);
-
-
-    switch (state) {
-        case states[0]:
-            {
-                consoleEl.value = (temp + temp2);
-                break;
-            }
-        case states[1]:
-            {
-                consoleEl.value = temp - temp2;
-                break;
-            }
-        case states[3]:
-            {
-                consoleEl.value = temp * temp2;
-                break;
-            }
-        case states[2]:
-            {
-                consoleEl.value = temp / temp2;
-                break;
-            }
-    }
-}
 
 function getConsoleElement() {
     var consoleEl = document.getElementById('console');
